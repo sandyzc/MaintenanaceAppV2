@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:transitionName="transition_login"
+    tools:context=".SaveUserInfo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/muli_black"
+            android:text="User"
+            android:textAllCaps="true"
+            android:textSize="40sp" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/user_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Name"
+                app:boxStrokeWidthFocused="2dp"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/person"
+                >
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_username1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli_semibold"
+                    android:inputType="textPersonName"
+
+                    android:textCursorDrawable="@null" />
+
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_below="@id/user_name"
+                android:id="@+id/new_pass"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="New Password"
+
+                app:boxStrokeWidthFocused="2dp"
+                app:endIconMode="password_toggle"
+
+                app:startIconDrawable="@drawable/field_password_icon"
+            >
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_pass_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli_semibold"
+                    android:inputType="textPassword"
+                    android:textCursorDrawable="@null" />
+
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_below="@+id/new_pass"
+                android:id="@+id/new_pass_con"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+
+                app:boxStrokeWidthFocused="2dp"
+                app:endIconMode="clear_text"
+
+                app:startIconDrawable="@drawable/field_password_icon">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_pass_con_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli_semibold"
+                    android:inputType="text"
+
+                    android:textCursorDrawable="@null" />
+
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/new_pass_con"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="5dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:transitionName="transition_login"
+                    android:onClick="save_user_info"
+                    android:text="Save"
+                     />
+            </androidx.cardview.widget.CardView>
+
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

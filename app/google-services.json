@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1004248219741",
+    "project_id": "sapsearch-2d20e",
+    "storage_bucket": "sapsearch-2d20e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004248219741:android:a618db99a33606a9394db4",
+        "android_client_info": {
+          "package_name": "com.example.maintenanceappv2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCheagZMT2sYdllMUu1BTX_zO3yJ8GOlR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

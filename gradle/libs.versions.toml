@@ -1,5 +1,6 @@
 [versions]
 agp = "8.5.1"
+googleMaterial = "1.0.0"
 kotlin = "1.9.0"
 coreKtx = "1.10.1"
 junit = "4.13.2"
@@ -15,6 +16,11 @@ constraintlayout = "2.1.4"
 lifecycleLivedataKtx = "2.8.3"
 lifecycleViewmodelKtx = "2.8.3"
 activity = "1.9.0"
+materialVersion = "1.x.x"
+uiTextGoogleFonts = "1.6.8"
+googleGmsGoogleServices = "4.4.2"
+firebaseAuth = "23.0.0"
+firebaseFirestore = "25.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,8 +44,14 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+material-v100 = { module = "com.google.android.material:material", version.ref = "googleMaterial" }
+material-v1xx = { module = "com.google.android.material:material", version.ref = "materialVersion" }
+androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 
