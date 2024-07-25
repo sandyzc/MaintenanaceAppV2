@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="10dp"
+        android:backgroundTint="#FFEB3B"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:weightSum="3"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="@color/cardview_dark_background"
+                    android:id="@+id/sapcode_card"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli_black"
+                    android:text="Sap Code"
+                    android:textSize="20sp" />
+                <TextView
+                    android:textColor="@color/cardview_dark_background"
+                    android:id="@+id/stock_card"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli_black"
+                    android:textAlignment="center"
+                    android:text="Stock"
+                    android:textSize="20sp" />
+                <TextView
+                    android:textColor="@color/cardview_dark_background"
+                    android:id="@+id/location_card"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli_black"
+                    android:text="Locaion"
+                    android:textAlignment="viewEnd"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_margin="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+               android:background="#000000"
+                />
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/cardview_dark_background"
+                    android:id="@+id/description_card"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli"
+                    android:text="@string/longname"
+                    android:textSize="20sp" />
+                <View
+                    android:layout_margin="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#000000"
+                    />
+                <TextView
+                    android:textColor="@color/cardview_dark_background"
+                    android:id="@+id/gen_description_card"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli"
+                    android:textAlignment="textStart"
+                    android:text="@string/longname"
+                    android:textSize="20sp" />
+                <View
+                    android:layout_margin="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#000000"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/cardview_dark_background"
+                    android:id="@+id/used_in_card"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli_black"
+                    android:text="machine used om"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/station_card"
+                    android:textColor="@color/cardview_dark_background"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli_black"
+                    android:text="Station"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/vendor_card"
+                    android:textColor="@color/cardview_dark_background"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli_black"
+                    android:text="Vendor"
+                    android:textSize="20sp" />
+
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -69,6 +69,7 @@ dependencies {
     implementation libs.material.v1xx
     implementation libs.androidx.ui.text.google.fonts
     implementation libs.firebase.auth
+    implementation 'com.firebaseui:firebase-ui-firestore:8.0.2'
     implementation libs.firebase.firestore
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
