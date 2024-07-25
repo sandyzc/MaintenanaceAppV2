@@ -29,7 +29,16 @@ public class Material_from_firestore_adaptor extends FirestoreRecyclerAdapter<Sa
     @Override
     protected void onBindViewHolder(@NonNull Viewholder holder, int position, @NonNull SapMaterialSearchModel model) {
 
-        holder.itemView.findViewById(R.id.sapcode_card);
+        holder.sapcode_card.setText(String.valueOf(model.getSap_code()));
+        holder.description_card.setText(model.getDescription());
+        holder.stock_card.setText(String.valueOf(model.getStock()));
+        holder.location_card.setText(model.getLocation());
+        holder.gen_description_card.setText(model.getGen_desc());
+        holder.used_in_card.setText(model.getUsed_in_1());
+        holder.station_card.setText(model.getStation());
+        holder.vendor_card.setText(model.getVendor());
+
+
 
     }
 
