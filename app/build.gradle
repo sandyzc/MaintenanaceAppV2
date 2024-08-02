@@ -70,6 +70,8 @@ dependencies {
     implementation libs.androidx.ui.text.google.fonts
     implementation libs.firebase.auth
     implementation 'com.firebaseui:firebase-ui-firestore:8.0.2'
+    implementation 'com.algolia:instantsearch-android:3.3.1'
+    implementation 'com.algolia:algoliasearch-android:3.+'
     implementation libs.firebase.firestore
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit

@@ -1,5 +1,6 @@
 package com.example.maintenanceappv2.adaptors;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +22,15 @@ public class Material_from_firestore_adaptor extends FirestoreRecyclerAdapter<Sa
      * FirestoreRecyclerOptions} for configuration options.
      *
      * @param options
+     *
+     *
      */
-    public Material_from_firestore_adaptor(@NonNull FirestoreRecyclerOptions<SapMaterialSearchModel> options) {
+
+    Context context;
+
+    public Material_from_firestore_adaptor(@NonNull FirestoreRecyclerOptions<SapMaterialSearchModel> options, Context context) {
         super(options);
+        this.context=context;
     }
 
     @Override
@@ -54,7 +61,7 @@ public class Material_from_firestore_adaptor extends FirestoreRecyclerAdapter<Sa
 
 
 
-        return null;
+        return mViewholder;
     }
 
     static class Viewholder extends RecyclerView.ViewHolder {

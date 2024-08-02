@@ -1,5 +1,6 @@
 package com.example.maintenanceappv2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button materialSearch;
+
 
 
     @Override
@@ -26,12 +27,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        materialSearch.findViewById(R.id.material_search_btn);
+        Button  materialSearchbtn= findViewById(R.id.material_search_btn);
 
-        materialSearch.setOnClickListener(new View.OnClickListener() {
+        materialSearchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(getApplicationContext(), Algolia_search.class);
+                startActivity(intent);
 
 
             }
