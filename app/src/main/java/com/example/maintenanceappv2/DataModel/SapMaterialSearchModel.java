@@ -1,12 +1,47 @@
 package com.example.maintenanceappv2.DataModel;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "materials")
 public class SapMaterialSearchModel {
+    @PrimaryKey
+@NonNull
 
-String description,location,machine,station,sub_assembly,gen_desc,catergory,image,used_in_1,used_in_2,used_in_3,used_in_4,vendor;
-int sap_code,stock;
+    private String id;
+    private int sap_code;
+    private String description;
+    private int stock;
+    private String location;
+    private String machine;
+    private String station;
+    private String sub_assembly;
+    private String gen_desc;
+    private String category;
+    private String image;
+    private String used_in_1;
+    private String used_in_2;
+    private String used_in_3;
+    private String used_in_4;
+    private String vendor;
 
+    // Getters and Setters
+    @NonNull
+    public String getId() {
+        return id;
+    }
 
-    public SapMaterialSearchModel() {
+    public void setId(@NonNull String id) {
+        this.id = id;
+    }
+
+    public int getSap_code() {
+        return sap_code;
+    }
+
+    public void setSap_code(int sap_code) {
+        this.sap_code = sap_code;
     }
 
     public String getDescription() {
@@ -15,6 +50,14 @@ int sap_code,stock;
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public String getLocation() {
@@ -57,13 +100,12 @@ int sap_code,stock;
         this.gen_desc = gen_desc;
     }
 
-
-    public String getCatergory() {
-        return catergory;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCatergory(String catergory) {
-        this.catergory = catergory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getImage() {
@@ -112,21 +154,5 @@ int sap_code,stock;
 
     public void setVendor(String vendor) {
         this.vendor = vendor;
-    }
-
-    public int getSap_code() {
-        return sap_code;
-    }
-
-    public void setSap_code(int sap_code) {
-        this.sap_code = sap_code;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
     }
 }

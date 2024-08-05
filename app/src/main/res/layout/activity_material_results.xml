@@ -7,10 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".Material_results">
 
+
+
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/algolia_rcv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/material_search_list_rcv"
-        />
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

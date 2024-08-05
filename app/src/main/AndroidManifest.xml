@@ -15,9 +15,6 @@
         android:name=".Algolia_app">
 
         <activity
-            android:name=".Algolia_search"
-            android:exported="false" />
-        <activity
             android:name=".Material_results"
             android:exported="false" />
         <activity

@@ -1,70 +1,84 @@
 package com.example.maintenanceappv2;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
-import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.maintenanceappv2.DataModel.SapMaterialSearchModel;
-import com.example.maintenanceappv2.adaptors.Material_from_firestore_adaptor;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
+import com.example.maintenanceappv2.adaptors.AlgoliaAdapter;
+import com.example.maintenanceappv2.adaptors.SapMaterialViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Material_results extends AppCompatActivity {
+    private SapMaterialViewModel viewModel;
+    private RecyclerView recyclerView;
+    private AlgoliaAdapter adapter;
+    String keyword;
+    String searchColumn;
 
-    CollectionReference reference = FirebaseFirestore.getInstance().collection("web_app");
-    RecyclerView material_results;
-    Material_from_firestore_adaptor adaptor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_material_results);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+             keyword = bundle.getString("keyword");
+             searchColumn = bundle.getString("searchColumn");
+
+        }
+
+        recyclerView = findViewById(R.id.algolia_rcv);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new AlgoliaAdapter(new ArrayList<>(), this);
+        recyclerView.setAdapter(adapter);
+
+        // Initialize ViewModel
+        viewModel = new ViewModelProvider(this).get(SapMaterialViewModel.class);
+        performSearch(keyword, searchColumn);
+        
 
 
+    }
 
+    private void performSearch(String keyword, String searchColumn) {
+        viewModel.searchMaterials(keyword, searchColumn).observe(this, new Observer<List<SapMaterialSearchModel>>() {
+            @Override
+            public void onChanged(List<SapMaterialSearchModel> sapMaterialSearchModels) {
+                adapter.updateList(sapMaterialSearchModels);
+            }
+        });
+    }
+
+
+    private void showSearchDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_search, null);
+        builder.setView(dialogView);
+
+        EditText searchEditText = dialogView.findViewById(R.id.searchEditText);
+        Button searchButton = dialogView.findViewById(R.id.searchButton);
+
+        AlertDialog dialog = builder.create();
+        searchButton.setOnClickListener(view -> {
+            String query = searchEditText.getText().toString();
+            viewModel.searchMaterials(query).observe(this, results -> adapter.updateList(results));
+            dialog.dismiss();
         });
 
-        material_results=findViewById(R.id.material_search_list_rcv);
-
-
-        Query query = reference.orderBy("sap_code", Query.Direction.DESCENDING);
-
-        FirestoreRecyclerOptions<SapMaterialSearchModel> options = new FirestoreRecyclerOptions.Builder<SapMaterialSearchModel>().setQuery(query, SapMaterialSearchModel.class).build();
-
-         adaptor = new Material_from_firestore_adaptor(options,this);
-
-        material_results.setHasFixedSize(true);
-        material_results.setLayoutManager(new LinearLayoutManager(this));
-        material_results.addItemDecoration(new DividerItemDecoration(this,
-                DividerItemDecoration.VERTICAL));
-
-        material_results.setAdapter(adaptor);
-
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        adaptor.startListening();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        adaptor.stopListening();
+        dialog.show();
     }
 }
+
