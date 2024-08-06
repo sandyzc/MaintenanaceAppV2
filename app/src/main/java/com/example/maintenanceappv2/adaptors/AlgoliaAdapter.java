@@ -14,7 +14,7 @@ import java.util.List;
 
 public class AlgoliaAdapter extends RecyclerView.Adapter<AlgoliaAdapter.ViewHolder> {
     private List<SapMaterialSearchModel> itemList;
-    private Context context;
+    private final Context context;
 
     public AlgoliaAdapter(List<SapMaterialSearchModel> itemList, Context context) {
         this.itemList = itemList;

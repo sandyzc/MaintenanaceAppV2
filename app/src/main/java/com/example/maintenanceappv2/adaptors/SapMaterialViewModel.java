@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SapMaterialViewModel extends AndroidViewModel {
 
-    private SapMaterialRepository repository;
+    private final SapMaterialRepository repository;
 
     public SapMaterialViewModel(Application application) {
         super(application);

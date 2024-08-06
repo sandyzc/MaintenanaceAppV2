@@ -14,8 +14,8 @@ import java.util.concurrent.Executors;
 
 public class SapMaterialRepository {
 
-    private SapMaterialDao sapMaterialDao;
-    private ExecutorService executorService;
+    private final SapMaterialDao sapMaterialDao;
+    private final ExecutorService executorService;
 
     public SapMaterialRepository(Application application) {
         AppDatabase db = Room.databaseBuilder(application, AppDatabase.class, "sap_local_database")

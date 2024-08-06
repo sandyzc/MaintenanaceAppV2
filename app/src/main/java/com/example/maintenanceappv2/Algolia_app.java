@@ -10,9 +10,9 @@ public class Algolia_app extends Application {
 
     private Client algoliaClient;
     private Index index;
-    private String appid= "W804M83I49";
-    private String adminkey= "0d375b223644080e657a532509e4e79e";
-    private String indexname= "material desc";
+    private final String appid= "W804M83I49";
+    private final String adminkey= "0d375b223644080e657a532509e4e79e";
+    private final String indexname= "material desc";
 
 
     @Override
