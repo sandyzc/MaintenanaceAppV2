@@ -150,6 +150,21 @@ public class MainActivity extends AppCompatActivity {
             String keyword = keywordEditText.getText().toString().trim();
             int selectedId = radioGroup.getCheckedRadioButtonId();
             RadioButton selectedRadioButton = dialogView.findViewById(selectedId);
+
+            String searchText = keywordEditText.getText().toString().trim();
+
+            if (searchText.isEmpty()) {
+                keywordEditText.setError("Search field can't be empty");
+                keywordEditText.requestFocus();
+                return;
+            }
+
+            int selectedOptionId = radioGroup.getCheckedRadioButtonId();
+            if (selectedOptionId == -1) {
+                Toast.makeText(this, "Please select a search option", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             String searchColumn = selectedRadioButton.getText().toString().toLowerCase();
             Bundle bundle = new Bundle();
             bundle.putString("keyword", keyword);
